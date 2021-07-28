@@ -25,7 +25,6 @@ public class QuotesListAdapter extends RecyclerView.Adapter<QuotesListAdapter.Qu
         this.quoteList = quoteList;
     }
 
-    @NonNull
     @Override
     public QuotesViewHolder onCreateViewHolder( ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())

@@ -12,7 +12,7 @@
         android:id="@+id/recyclerView"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:textColor=""
+        android:textColor="@color/black"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"/>

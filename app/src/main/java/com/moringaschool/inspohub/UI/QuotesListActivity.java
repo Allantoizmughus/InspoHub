@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -30,6 +31,7 @@ public class QuotesListActivity extends AppCompatActivity {
     QuotesListAdapter mAdapter;
     List<Quote> quoteList = new ArrayList<>();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,15 +43,18 @@ public class QuotesListActivity extends AppCompatActivity {
         mAdapter = new QuotesListAdapter(quoteList);
         mRecyclerView.setAdapter(mAdapter);
 
+        Log.e("TAG","inside onCreate");
         fetchPost();
     }
 
     private void fetchPost(){
         mProgressBar.setVisibility(View.VISIBLE);
+        Log.e("TAG","inside fetchPost");
         QuoteClient.getRetrofitClient().getQuotes().enqueue(new Callback<List<Quote>>() {
             @Override
             public void onResponse(Call<List<Quote>> call, Response<List<Quote>> response) {
                 if(response.isSuccessful() && response.body() != null){
+                    Log.e("TAG","Response"+ response);
                     quoteList.addAll(response.body());
                     mAdapter.notifyDataSetChanged();
                     mProgressBar.setVisibility(View.GONE);
@@ -58,6 +63,7 @@ public class QuotesListActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<Quote>> call, Throwable t) {
+                Log.e("TAG","inside onFailure");
                 mProgressBar.setVisibility(View.GONE);
                 Toast.makeText(QuotesListActivity.this, "Error"+ t.getMessage(),Toast.LENGTH_SHORT).show();
             }
