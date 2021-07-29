@@ -40,11 +40,6 @@ public class QuotesListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_quotes_list);
         ButterKnife.bind(this);
 
-//        linearLayoutManager = new LinearLayoutManager(this);
-//        mRecyclerView.setLayoutManager(linearLayoutManager);
-//        mAdapter = new QuotesListAdapter(quoteList);
-//        mRecyclerView.setAdapter(mAdapter);
-
 
         Log.e("TAG","inside onCreate");
         fetchPost();
