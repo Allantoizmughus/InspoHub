@@ -12,6 +12,8 @@ import android.widget.Toast;
 
 import com.moringaschool.inspohub.Adapter.QuotesListAdapter;
 import com.moringaschool.inspohub.Model.Quote;
+import com.moringaschool.inspohub.Model.QuotesResponse;
+import com.moringaschool.inspohub.Network.QuoteApi;
 import com.moringaschool.inspohub.Network.QuoteClient;
 import com.moringaschool.inspohub.R;
 
@@ -29,7 +31,7 @@ public class QuotesListActivity extends AppCompatActivity {
     @BindView(R.id.progressBar) ProgressBar mProgressBar;
     LinearLayoutManager linearLayoutManager;
     QuotesListAdapter mAdapter;
-    List<Quote> quoteList = new ArrayList<>();
+    public List<Quote> quoteList;
 
 
     @Override
@@ -38,10 +40,10 @@ public class QuotesListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_quotes_list);
         ButterKnife.bind(this);
 
-        linearLayoutManager = new LinearLayoutManager(this);
-        mRecyclerView.setLayoutManager(linearLayoutManager);
-        mAdapter = new QuotesListAdapter(quoteList);
-        mRecyclerView.setAdapter(mAdapter);
+//        linearLayoutManager = new LinearLayoutManager(this);
+//        mRecyclerView.setLayoutManager(linearLayoutManager);
+//        mAdapter = new QuotesListAdapter(quoteList);
+//        mRecyclerView.setAdapter(mAdapter);
 
 
         Log.e("TAG","inside onCreate");
@@ -51,12 +53,19 @@ public class QuotesListActivity extends AppCompatActivity {
     private void fetchPost(){
         mProgressBar.setVisibility(View.VISIBLE);
         Log.e("TAG","inside fetchPost");
-        QuoteClient.getRetrofitClient().getQuotes().enqueue(new Callback<List<Quote>>() {
+        QuoteApi client = QuoteClient.getRetrofitClient();
+        Call<QuotesResponse> call =client.getQuotes();
+        call.enqueue(new Callback<QuotesResponse>() {
             @Override
-            public void onResponse(Call<List<Quote>> call, Response<List<Quote>> response) {
+            public void onResponse(Call<QuotesResponse> call, Response<QuotesResponse> response) {
                 if(response.isSuccessful() && response.body() != null){
                     Log.e("TAG","Response");
-                    quoteList.addAll(response.body());
+                    quoteList=response.body().getData();
+                    mAdapter= new QuotesListAdapter(quoteList);
+                    mRecyclerView.setAdapter(mAdapter);
+                    RecyclerView.LayoutManager linearLayoutManager = new LinearLayoutManager(QuotesListActivity.this);
+                    mRecyclerView.setLayoutManager(linearLayoutManager);
+                    mRecyclerView.setHasFixedSize(true);
                     mAdapter.notifyDataSetChanged();
                     mProgressBar.setVisibility(View.GONE);
 
@@ -65,7 +74,7 @@ public class QuotesListActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<List<Quote>> call, Throwable t) {
+            public void onFailure(Call<QuotesResponse> call, Throwable t) {
                 Log.e("TAG","inside onFailure");
                 mProgressBar.setVisibility(View.GONE);
                 Toast.makeText(QuotesListActivity.this, "Error"+ t.getMessage(),Toast.LENGTH_SHORT).show();

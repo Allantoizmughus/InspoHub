@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.moringaschool.inspohub.Model.Quote;
+import com.moringaschool.inspohub.Model.QuotesResponse;
 import com.moringaschool.inspohub.R;
 
 import java.util.ArrayList;
@@ -36,9 +37,10 @@ public class QuotesListAdapter extends RecyclerView.Adapter<QuotesListAdapter.Qu
 
     @Override
     public void onBindViewHolder(QuotesListAdapter.QuotesViewHolder holder, int position) {
-        holder.mIdTextView.setText(quoteList.get(position).getId());
-        holder.mQuoteTextView.setText(quoteList.get(position).getQuoteText());
-        holder.mAuthorTextView.setText(quoteList.get(position).getQuoteAuthor());
+        holder.bindQuotes(quoteList.get(position));
+//        holder.mIdTextView.setText(quoteList.get(position).getId());
+//        holder.mQuoteTextView.setText(quoteList.get(position).getQuoteText());
+//        holder.mAuthorTextView.setText(quoteList.get(position).getQuoteAuthor());
     }
 
 
@@ -59,6 +61,13 @@ public class QuotesListAdapter extends RecyclerView.Adapter<QuotesListAdapter.Qu
             super(itemView);
             ButterKnife.bind(this, itemView);
             mContext = itemView.getContext();
+
+        }
+
+        public void bindQuotes(Quote quoteList){
+            mIdTextView.setText(quoteList.getId());
+            mQuoteTextView.setText(quoteList.getQuoteText());
+            mAuthorTextView.setText(quoteList.getQuoteAuthor());
 
         }
     }
