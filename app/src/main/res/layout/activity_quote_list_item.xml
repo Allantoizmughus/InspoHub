@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:layout_margin="5dp">
+    android:layout_margin="5dp"
+    android:background="@color/teal_200">
 
 
     <TextView
@@ -12,7 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="QuoteId"
-        android:layout_marginLeft="5dp"/>
+        android:layout_marginLeft="5dp"
+        android:textColor="@color/white"/>
 
     <TextView
         android:id="@+id/QuoteTextView"
@@ -21,7 +23,8 @@
         android:text="Today is the day"
         android:textSize="18dp"
         android:layout_below="@+id/IdTextView"
-        android:layout_marginLeft="10dp"/>
+        android:layout_marginLeft="10dp"
+        android:textColor="@color/purplestack" />
 
     <TextView
         android:id="@+id/AuthorTextView"
@@ -31,7 +34,8 @@
         android:layout_below="@+id/QuoteTextView"
         android:layout_alignParentRight="true"
         android:layout_marginRight="10dp"
-        android:textStyle="italic"/>
+        android:textStyle="italic"
+        android:textColor="@color/purplePink"/>
 
 
 </RelativeLayout>
