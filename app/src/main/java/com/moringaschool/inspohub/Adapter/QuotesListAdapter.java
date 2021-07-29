@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.moringaschool.inspohub.Model.Quote;
 import com.moringaschool.inspohub.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;

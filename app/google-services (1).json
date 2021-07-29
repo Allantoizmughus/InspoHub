@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "885183592819",
+    "project_id": "inspohub-79129",
+    "storage_bucket": "inspohub-79129.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:885183592819:android:7f310d39bcfd78a963ed06",
+        "android_client_info": {
+          "package_name": "com.moringaschool.inspohub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "885183592819-5jkm2vrrujlh1130n3amgrrlndcbepqj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJ9djJtk5KD9NcGjTsyHIpbRn0bJZqQZU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "885183592819-5jkm2vrrujlh1130n3amgrrlndcbepqj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

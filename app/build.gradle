@@ -1,5 +1,6 @@
 plugins {
     id 'com.android.application'
+
 }
 
 android {
@@ -45,4 +46,15 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'org.parceler:parceler-api:1.1.12'
     annotationProcessor 'org.parceler:parceler:1.1.12'
+
+    //firebase
+    implementation platform('com.google.firebase:firebase-bom:28.3.0')
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-database'
+    implementation 'org.parceler:parceler-api:1.1.12'
+    annotationProcessor 'org.parceler:parceler:1.1.12'
+    implementation 'com.google.firebase:firebase-database'
+    implementation 'com.firebaseui:firebase-ui-database:7.1.1'
+    implementation 'com.google.firebase:firebase-auth'
 }
+apply plugin: 'com.google.gms.google-services'

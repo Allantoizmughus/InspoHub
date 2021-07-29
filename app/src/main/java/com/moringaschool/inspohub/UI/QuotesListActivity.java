@@ -43,6 +43,7 @@ public class QuotesListActivity extends AppCompatActivity {
         mAdapter = new QuotesListAdapter(quoteList);
         mRecyclerView.setAdapter(mAdapter);
 
+
         Log.e("TAG","inside onCreate");
         fetchPost();
     }
@@ -54,10 +55,12 @@ public class QuotesListActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<Quote>> call, Response<List<Quote>> response) {
                 if(response.isSuccessful() && response.body() != null){
-                    Log.e("TAG","Response"+ response);
+                    Log.e("TAG","Response");
                     quoteList.addAll(response.body());
                     mAdapter.notifyDataSetChanged();
                     mProgressBar.setVisibility(View.GONE);
+
+                    showQuotes();
                 }
             }
 
@@ -69,4 +72,6 @@ public class QuotesListActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void showQuotes(){mRecyclerView.setVisibility(View.VISIBLE);}
 }
