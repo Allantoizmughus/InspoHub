@@ -12,11 +12,25 @@
         android:id="@+id/AppNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="InspoHub"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:textSize="25sp"
-        android:textColor="@color/purpleRed"/>
+        android:fontFamily="@font/sail"
+        android:text="InspoHub"
+        android:textColor="@color/purpleRed"
+        android:textSize="30sp" />
+
+
+    <TextView
+        android:id="@+id/DescriptionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/AppNameTextView"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/playball"
+        android:text="Get Inspired By A Pool Of great Quotes From All over the World."
+        android:textAlignment="center"
+        android:textColor="@color/purpleRed" />
 
     <Button
         android:id="@+id/ViewQuotesButton"

@@ -19,7 +19,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".UI.CreateAccountActivity" />
-        <activity android:name=".UI.QuotesListActivity" />
+        <activity android:name=".UI.QuotesListActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.moringaschool.inspohub.MainActivity"/>
+        </activity>
         <activity android:name=".MainActivity">
 
         </activity>

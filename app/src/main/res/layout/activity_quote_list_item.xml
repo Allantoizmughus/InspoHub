@@ -20,11 +20,12 @@
         android:id="@+id/QuoteTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Today is the day"
-        android:textSize="18dp"
         android:layout_below="@+id/IdTextView"
         android:layout_marginLeft="10dp"
-        android:textColor="@color/purplestack" />
+        android:fontFamily="@font/merienda"
+        android:text="Today is the day"
+        android:textColor="@color/purplestack"
+        android:textSize="18dp" />
 
     <TextView
         android:id="@+id/AuthorTextView"
